@@ -28,6 +28,7 @@ public class DBCountry {
                 int countryId = rs.getInt("Country_ID");
                 String countryName = rs.getString("Country");
                 
+                
                 Country c = new Country(countryId, countryName);
                 clist.add(c);
             }

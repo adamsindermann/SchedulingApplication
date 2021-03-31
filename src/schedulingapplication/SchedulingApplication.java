@@ -10,7 +10,9 @@ import Database.DBConnection;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Locale;
 import java.util.Scanner;
+import utility.Session;
 
 /**
  *
@@ -23,6 +25,7 @@ public class SchedulingApplication extends Application {
      */
     public static void main(String[] args) throws SQLException {
         Connection conn = DBConnection.startConnection();
+        Session.setZoneID(ZoneId.systemDefault());
 //        String insertStatement = "INSERT INTO product_tbl(Description, Price) VALUES(?,?)";
 //        
 //        DBQuery.setPreparedStatement(conn, insertStatement);
@@ -42,6 +45,8 @@ public class SchedulingApplication extends Application {
 //        } else {
 //            System.out.println("No Change");
 //        }
+
+        //Locale.setDefault(Locale.FRENCH);
         
         launch(args);
         DBConnection.closeConnection();
@@ -53,6 +58,9 @@ public class SchedulingApplication extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Sign In");
+        if(Locale.getDefault().toString().equals("fr")){
+            stage.setTitle("S'identifier");
+        }
         stage.show();
     }
 
