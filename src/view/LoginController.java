@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import model.Country;
 import model.User;
 import utility.Session;
+import utility.WindowUtility;
 
 /**
  * FXML Controller class
@@ -45,6 +46,10 @@ public class LoginController implements Initializable {
     private Label passwordLabel;
     @FXML
     private Label incorrectPassword;
+    
+    
+    //File Locations
+    private final String dashboard = "/view/Dashboard.fxml";
 
     public void login() throws IOException {
         String userName = usernameField.getText();
@@ -57,7 +62,7 @@ public class LoginController implements Initializable {
             invalid();
         } else {
             Session.setCurrentUser(user);
-            launchDashboard();
+            launch(dashboard, "Dashboard");
             Stage stage = (Stage) submit.getScene().getWindow();
             stage.close();
         }
@@ -74,16 +79,10 @@ public class LoginController implements Initializable {
 
     }
 
-    public void launchDashboard() throws IOException {
+    public void launch(String location, String title) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/Dashboard.fxml"));
-        Parent parent = loader.load();
-
-        Scene newScene = new Scene(parent);
-        Stage stage = new Stage();
-
-        stage.setScene(newScene);
-        stage.show();
+        loader.setLocation(getClass().getResource(dashboard));
+        WindowUtility.newWindow(loader, title);
     }
 
     /**
