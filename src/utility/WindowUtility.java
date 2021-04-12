@@ -24,7 +24,7 @@ public class WindowUtility {
         Scene newScene = new Scene(parent);
         Stage stage = new Stage();
 
-        stage.setTitle("title");
+        stage.setTitle(title);
         stage.setScene(newScene);
         stage.show();
     }

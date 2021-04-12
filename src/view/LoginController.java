@@ -1,7 +1,7 @@
 package view;
 
-import DBAccess.DBCountry;
-import DBAccess.DBUser;
+import DOA.DBCountry;
+import DOA.DBUser;
 import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import model.Country;
 import model.User;
 import utility.Session;
+import utility.WindowInterface;
 import utility.WindowUtility;
 
 /**
@@ -47,9 +48,17 @@ public class LoginController implements Initializable {
     @FXML
     private Label incorrectPassword;
     
-    
     //File Locations
     private final String dashboard = "/view/Dashboard.fxml";
+    
+    private final WindowInterface loader = location -> {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(location));
+        return loader;
+    };
+    
+    
+
 
     public void login() throws IOException {
         String userName = usernameField.getText();
@@ -62,7 +71,7 @@ public class LoginController implements Initializable {
             invalid();
         } else {
             Session.setCurrentUser(user);
-            launch(dashboard, "Dashboard");
+            WindowUtility.newWindow(loader.getLoader(dashboard), "Dashboard");
             Stage stage = (Stage) submit.getScene().getWindow();
             stage.close();
         }
@@ -79,11 +88,6 @@ public class LoginController implements Initializable {
 
     }
 
-    public void launch(String location, String title) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(dashboard));
-        WindowUtility.newWindow(loader, title);
-    }
 
     /**
      * Initializes the controller class.

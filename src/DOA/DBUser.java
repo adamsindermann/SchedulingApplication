@@ -16,7 +16,7 @@ public class DBUser {
         Connection conn = DBConnection.getConnection();
         ObservableList<User> allUsers = FXCollections.observableArrayList();
         try {
-            String query = "SELECT * from users";
+            String query = "SELECT * FROM users";
 
             DBQuery.setPreparedStatement(conn, query);
             PreparedStatement ps = DBQuery.getPreparedStatement();

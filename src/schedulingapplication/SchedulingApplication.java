@@ -1,6 +1,6 @@
 package schedulingapplication;
 
-import DBAccess.DBQuery;
+import DOA.DBQuery;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -39,4 +39,27 @@ public class DBCountry {
         return clist;
     }
     
+    public static Country getCountry(int countryID){
+        Connection conn = DBConnection.getConnection();
+        Country country = new Country(-1, "");
+        try {
+            String query = "SELECT Country FROM countries WHERE Country_ID = ?";
+            DBQuery.setPreparedStatement(conn, query);
+            PreparedStatement ps = DBQuery.getPreparedStatement(); 
+            
+            ps.setString(1, Integer.toString(countryID));
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                String name = rs.getString("Country");
+                
+                country = new Country(countryID, name);
+            } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return country;
+    }
+    
 }
