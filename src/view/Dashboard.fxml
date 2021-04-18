@@ -42,7 +42,7 @@
                         <RadioButton fx:id="monthRadio" layoutX="843.0" layoutY="16.0" mnemonicParsing="false" text="Month" />
                         <RadioButton fx:id="weekRadio" layoutX="780.0" layoutY="16.0" mnemonicParsing="false" text="Week" />
                         <RadioButton fx:id="allRadio" layoutX="735.0" layoutY="16.0" mnemonicParsing="false" text="All" />
-                        <Button fx:id="newAppButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" text="New" />
+                        <Button fx:id="newAppButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchAppointmentWindow" text="New" />
                         <Button fx:id="editAppButton" layoutX="813.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
                      </children>
                   </AnchorPane>

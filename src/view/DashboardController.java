@@ -7,6 +7,7 @@ package view;
 
 import DOA.DBAppointment;
 import DOA.DBCustomer;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,6 +21,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointment;
 import model.Customer;
 import java.sql.Timestamp;
+import javafx.fxml.FXMLLoader;
+import utility.WindowInterface;
+import utility.WindowUtility;
 
 /**
  * FXML Controller class
@@ -90,6 +94,19 @@ public class DashboardController implements Initializable {
     @FXML
     private Tab custTab;
 
+    //File locations
+    private String apptWindow = "/view/Appointment.fxml";
+
+    private final WindowInterface loader = location -> {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(location));
+        return loader;
+    };
+
+    public void launchAppointmentWindow() throws IOException {
+        WindowUtility.newWindow(loader.getLoader(apptWindow), "Appointment");
+    }
+
     /**
      * Initializes the controller class.
      */
@@ -113,7 +130,7 @@ public class DashboardController implements Initializable {
         appStartCol.setCellValueFactory(new PropertyValueFactory<Appointment, Timestamp>("start"));
         appEndCol.setCellValueFactory(new PropertyValueFactory<Appointment, Timestamp>("end"));
         appCustIDCol.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("customerID"));
-        
+
         appointmentView.setItems(DBAppointment.getAllAppointments());
     }
 

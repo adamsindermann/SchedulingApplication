@@ -15,6 +15,14 @@ public class Contact {
         this.email = email;
     }
 
+    public Contact(int contactID) {
+        this.contactID = contactID;
+        this.name = "";
+        this.email = "";
+    }
+    
+    
+
     public int getContactID() {
         return contactID;
     }

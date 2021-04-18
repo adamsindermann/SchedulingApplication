@@ -26,9 +26,14 @@ public class Customer {
         this.postalCode = postalCode;
         this.phone = phone;
         this.divisionID = divisionID;
-        this.country = country;
-        this.division = division;
+
     }
+
+    public Customer(int custID) {
+        this.custID = custID;
+    }
+    
+    
 
     public int getCustID() {
         return custID;

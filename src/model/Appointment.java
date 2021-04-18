@@ -30,6 +30,21 @@ public class Appointment {
         this.userID = userID;
         this.contactID = contactID;
     }
+    
+    
+
+    public Appointment(int appointmentID) {
+        this.appointmentID = appointmentID;
+        this.title = "";
+        this.description = "";
+        this.location = "";
+        this.type = "";
+        this.start = null;
+        this.end = null;
+        this.customerID = 0;
+        this.userID = 0;
+        this.contactID = 0;
+    }
 
     public int getAppointmentID() {
         return appointmentID;
