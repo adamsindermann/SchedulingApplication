@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+
 /**
  *
  * @author Adam Sindermann
@@ -27,5 +28,16 @@ public class WindowUtility {
         stage.setTitle(title);
         stage.setScene(newScene);
         stage.show();
+    }
+
+    public static void newWindowWait(FXMLLoader loader, String title) throws IOException {
+        Parent parent = loader.load();
+
+        Scene newScene = new Scene(parent);
+        Stage stage = new Stage();
+
+        stage.setTitle(title);
+        stage.setScene(newScene);
+        stage.showAndWait();
     }
 }

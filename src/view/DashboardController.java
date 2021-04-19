@@ -21,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointment;
 import model.Customer;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javafx.fxml.FXMLLoader;
 import utility.WindowInterface;
 import utility.WindowUtility;
@@ -47,10 +48,11 @@ public class DashboardController implements Initializable {
     private TableColumn<Appointment, String> appLocationCol;
     @FXML
     private TableColumn<Appointment, Integer> appContactCol;
+    @FXML private TableColumn<Appointment, String> appDateCol;
     @FXML
-    private TableColumn<Appointment, Timestamp> appStartCol;
+    private TableColumn<Appointment, String> appStartCol;
     @FXML
-    private TableColumn<Appointment, Timestamp> appEndCol;
+    private TableColumn<Appointment, String> appEndCol;
     @FXML
     private TableColumn<Appointment, Integer> appCustIDCol;
 
@@ -104,7 +106,8 @@ public class DashboardController implements Initializable {
     };
 
     public void launchAppointmentWindow() throws IOException {
-        WindowUtility.newWindow(loader.getLoader(apptWindow), "Appointment");
+        WindowUtility.newWindowWait(loader.getLoader(apptWindow), "Appointment");
+        appointmentView.setItems(DBAppointment.getAllAppointments());
     }
 
     /**
@@ -127,8 +130,9 @@ public class DashboardController implements Initializable {
         appDescCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("description"));
         appLocationCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("location"));
         appContactCol.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("contactID"));
-        appStartCol.setCellValueFactory(new PropertyValueFactory<Appointment, Timestamp>("start"));
-        appEndCol.setCellValueFactory(new PropertyValueFactory<Appointment, Timestamp>("end"));
+        appDateCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("dateString"));
+        appStartCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("startString"));
+        appEndCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("endString"));
         appCustIDCol.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("customerID"));
 
         appointmentView.setItems(DBAppointment.getAllAppointments());

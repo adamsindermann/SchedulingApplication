@@ -12,27 +12,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="651.0" prefWidth="624.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="view.AppointmentController">
+<AnchorPane id="AnchorPane" prefHeight="699.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AppointmentController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="166.0" text="New Appointment">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="idField" disable="true" layoutX="228.0" layoutY="15.0" prefHeight="25.0" prefWidth="48.0" promptText="Auto">
+      <TextField fx:id="idBox" disable="true" layoutX="228.0" layoutY="15.0" prefHeight="25.0" prefWidth="48.0" promptText="Auto">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
       <Label layoutX="203.0" layoutY="19.0" text="ID:" />
-      <TextField layoutX="106.0" layoutY="65.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="subjectBox" layoutX="106.0" layoutY="65.0" prefHeight="25.0" prefWidth="174.0" />
       <Label layoutX="26.0" layoutY="69.0" text="Subject/Title:" />
       <Label layoutX="26.0" layoutY="114.0" text="Type:" />
-      <TextField layoutX="106.0" layoutY="110.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="typeBox" layoutX="106.0" layoutY="110.0" prefHeight="25.0" prefWidth="174.0" />
       <Label layoutX="26.0" layoutY="158.0" text="Location:" />
-      <TextField layoutX="106.0" layoutY="154.0" prefHeight="25.0" prefWidth="174.0" />
-      <DatePicker layoutX="426.0" layoutY="65.0" />
+      <TextField fx:id="locationBox" layoutX="106.0" layoutY="154.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker fx:id="datePicker" layoutX="426.0" layoutY="65.0" />
       <Label layoutX="374.0" layoutY="69.0" text="Date:" />
       <ChoiceBox fx:id="startHour" layoutX="426.0" layoutY="110.0" prefHeight="25.0" prefWidth="41.0" />
       <Label layoutX="374.0" layoutY="114.0" text="Start:" />
@@ -65,9 +64,10 @@
       <Label layoutX="352.0" layoutY="205.0" text="Contact:" />
       <ComboBox fx:id="contactCombo" layoutX="426.0" layoutY="201.0" prefHeight="25.0" prefWidth="174.0" />
       <Button fx:id="addCustomer" layoutX="242.0" layoutY="237.0" mnemonicParsing="false" onAction="#addCustomer" text="Add" />
-      <Button fx:id="addContact" layoutX="562.0" layoutY="237.0" mnemonicParsing="false" text="Add" />
-      <Label layoutX="29.0" layoutY="465.0" text="Description:" />
-      <TextArea layoutX="26.0" layoutY="493.0" prefHeight="110.0" prefWidth="576.0" />
-      <Button layoutX="561.0" layoutY="612.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="addContact" layoutX="562.0" layoutY="237.0" mnemonicParsing="false" onAction="#addContact" text="Add" />
+      <Label layoutX="25.0" layoutY="498.0" text="Description:" />
+      <TextArea fx:id="descBox" layoutX="27.0" layoutY="529.0" prefHeight="110.0" prefWidth="576.0" />
+      <Button layoutX="561.0" layoutY="660.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <Button layoutX="540.0" layoutY="461.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
    </children>
 </AnchorPane>

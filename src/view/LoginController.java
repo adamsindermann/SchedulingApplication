@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
             Session.setCurrentUser(user);
             WindowUtility.newWindow(loader.getLoader(dashboard), "Dashboard");
             Stage stage = (Stage) submit.getScene().getWindow();
-            stage.close();
+            stage.close(); 
         }
 
     }

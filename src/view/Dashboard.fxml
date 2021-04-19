@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DashboardController">
+<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1100.0" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DashboardController">
    <children>
-      <TabPane layoutX="50.0" layoutY="50.0" minHeight="500.0" minWidth="900.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="50.0" layoutY="50.0" minHeight="500.0" minWidth="1000.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="appTab" text="Appointments">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="appointmentView" layoutY="36.0" maxHeight="400.0" maxWidth="750.0" minHeight="400.0" minWidth="900.0" prefHeight="400.0" prefWidth="750.0">
+                        <TableView fx:id="appointmentView" layoutY="36.0" maxHeight="400.0" maxWidth="750.0" minHeight="400.0" minWidth="1000.0" prefHeight="400.0" prefWidth="750.0">
                            <columns>
                               <TableColumn fx:id="appIDCol" prefWidth="44.0" text="ID" />
                               <TableColumn fx:id="appTitleCol" prefWidth="106.0" text="Title" />
@@ -26,6 +26,7 @@
                               <TableColumn fx:id="appDescCol" prefWidth="192.0" text="Description" />
                               <TableColumn fx:id="appLocationCol" prefWidth="108.0" text="Location" />
                               <TableColumn fx:id="appContactCol" prefWidth="72.0" text="Contact ID" />
+                              <TableColumn fx:id="appDateCol" prefWidth="75.0" text="Date" />
                               <TableColumn fx:id="appStartCol" prefWidth="111.0" text="Start Time" />
                               <TableColumn fx:id="appEndCol" prefWidth="104.0" text="End Time" />
                               <TableColumn fx:id="appCustIDCol" text="Customer ID" />
@@ -39,11 +40,11 @@
                               <Font name="System Bold Italic" size="14.0" />
                            </font>
                         </Label>
-                        <RadioButton fx:id="monthRadio" layoutX="843.0" layoutY="16.0" mnemonicParsing="false" text="Month" />
-                        <RadioButton fx:id="weekRadio" layoutX="780.0" layoutY="16.0" mnemonicParsing="false" text="Week" />
-                        <RadioButton fx:id="allRadio" layoutX="735.0" layoutY="16.0" mnemonicParsing="false" text="All" />
-                        <Button fx:id="newAppButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchAppointmentWindow" text="New" />
-                        <Button fx:id="editAppButton" layoutX="813.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
+                        <RadioButton fx:id="monthRadio" layoutX="929.0" layoutY="16.0" mnemonicParsing="false" text="Month" />
+                        <RadioButton fx:id="weekRadio" layoutX="868.0" layoutY="16.0" mnemonicParsing="false" text="Week" />
+                        <RadioButton fx:id="allRadio" layoutX="825.0" layoutY="16.0" mnemonicParsing="false" text="All" />
+                        <Button fx:id="newAppButton" layoutX="958.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchAppointmentWindow" text="New" />
+                        <Button fx:id="editAppButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
                      </children>
                   </AnchorPane>
             </content>
@@ -52,7 +53,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="customerView" layoutY="36.0" maxHeight="400.0" maxWidth="750.0" minHeight="400.0" minWidth="900.0" prefHeight="400.0" prefWidth="750.0">
+                        <TableView fx:id="customerView" layoutY="36.0" maxHeight="400.0" maxWidth="750.0" minHeight="400.0" minWidth="1000.0" prefHeight="400.0" prefWidth="750.0">
                            <columns>
                               <TableColumn fx:id="custIDCol" prefWidth="44.0" text="ID" />
                               <TableColumn fx:id="custNameCol" prefWidth="183.0" text="Name" />
