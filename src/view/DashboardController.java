@@ -22,7 +22,14 @@ import model.Appointment;
 import model.Customer;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalField;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import utility.Sort;
+import utility.TimeInterface;
 import utility.WindowInterface;
 import utility.WindowUtility;
 
@@ -71,7 +78,8 @@ public class DashboardController implements Initializable {
     private RadioButton weekRadio;
     @FXML
     private RadioButton monthRadio;
-
+    private ToggleGroup sortToggle;
+    
     //Customer TableView
     @FXML
     private TableView<Customer> customerView;
@@ -95,6 +103,17 @@ public class DashboardController implements Initializable {
     private Button editCustButton;
     @FXML
     private Tab custTab;
+    
+    //Date Range Controller
+    @FXML private AnchorPane dateAnchor;
+    @FXML private Button dateLeft;
+    @FXML private Button dateRight;
+    @FXML private Label dateRangeLabel;
+    private LocalDateTime currentWeekStart;
+    
+    
+    
+
 
     //File locations
     private String apptWindow = "/view/Appointment.fxml";
@@ -104,10 +123,44 @@ public class DashboardController implements Initializable {
         loader.setLocation(getClass().getResource(location));
         return loader;
     };
+    
+    private final TimeInterface now = () -> {
+        return LocalDateTime.now();
+    };
 
     public void launchAppointmentWindow() throws IOException {
         WindowUtility.newWindowWait(loader.getLoader(apptWindow), "Appointment");
         appointmentView.setItems(DBAppointment.getAllAppointments());
+    }
+    
+    public void toggleSwitch(){
+
+        if(sortToggle.getSelectedToggle().equals(allRadio)){
+            appointmentView.setItems(DBAppointment.getAllAppointments());
+            dateAnchor.visibleProperty().set(false);
+        }
+        if(sortToggle.getSelectedToggle().equals(weekRadio)){
+            dateAnchor.visibleProperty().set(true);
+            dateRangeLabel.setText(Sort.getWeek(now.getTime()));
+            currentWeekStart = Sort.getWeekStart(now.getTime());
+            appointmentView.setItems(Sort.sortByWeek(now.getTime()));
+        }
+        
+        
+    }
+    
+    public void nextWeek(){
+        LocalDateTime weekStart = currentWeekStart.plusDays(8);
+        dateRangeLabel.setText(Sort.getWeek(weekStart));
+        currentWeekStart = weekStart;
+        appointmentView.setItems(Sort.sortByWeek(weekStart));
+    }
+    
+    public void lastWeek(){
+        LocalDateTime weekStart = currentWeekStart.minusDays(6);
+        dateRangeLabel.setText(Sort.getWeek(weekStart));
+        currentWeekStart = weekStart;
+        appointmentView.setItems(Sort.sortByWeek(weekStart));
     }
 
     /**
@@ -136,6 +189,12 @@ public class DashboardController implements Initializable {
         appCustIDCol.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("customerID"));
 
         appointmentView.setItems(DBAppointment.getAllAppointments());
+        
+        sortToggle = new ToggleGroup();
+        allRadio.setToggleGroup(sortToggle);
+        weekRadio.setToggleGroup(sortToggle);
+        monthRadio.setToggleGroup(sortToggle);
+
     }
 
 }
