@@ -22,6 +22,7 @@ import model.Appointment;
 import model.Customer;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalField;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +31,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import utility.Sort;
 import utility.TimeInterface;
+import utility.ToggleInterface;
 import utility.WindowInterface;
 import utility.WindowUtility;
 
@@ -110,7 +112,8 @@ public class DashboardController implements Initializable {
     @FXML private Button dateRight;
     @FXML private Label dateRangeLabel;
     private LocalDateTime currentWeekStart;
-    
+    private Month currentMonth;
+    private int year;
     
     
 
@@ -127,6 +130,14 @@ public class DashboardController implements Initializable {
     private final TimeInterface now = () -> {
         return LocalDateTime.now();
     };
+    
+    private final ToggleInterface radio = radioButton -> {
+        if (sortToggle.getSelectedToggle().equals(radioButton)){
+            return true;
+        } else {
+            return false;
+        }
+    };
 
     public void launchAppointmentWindow() throws IOException {
         WindowUtility.newWindowWait(loader.getLoader(apptWindow), "Appointment");
@@ -135,18 +146,44 @@ public class DashboardController implements Initializable {
     
     public void toggleSwitch(){
 
-        if(sortToggle.getSelectedToggle().equals(allRadio)){
+        if(radio.isSelected(allRadio)){
             appointmentView.setItems(DBAppointment.getAllAppointments());
             dateAnchor.visibleProperty().set(false);
         }
-        if(sortToggle.getSelectedToggle().equals(weekRadio)){
+        if(radio.isSelected(weekRadio)){
             dateAnchor.visibleProperty().set(true);
             dateRangeLabel.setText(Sort.getWeek(now.getTime()));
             currentWeekStart = Sort.getWeekStart(now.getTime());
             appointmentView.setItems(Sort.sortByWeek(now.getTime()));
         }
+        if(radio.isSelected(monthRadio)){
+            currentMonth = now.getTime().getMonth();
+            year = now.getTime().getYear();
+            dateAnchor.visibleProperty().set(true);
+            dateRangeLabel.setText(currentMonth.toString() + " " + year);
+            appointmentView.setItems(Sort.sortByMonth(currentMonth, year));
+        }
         
+    }
+    
+    public void next(){
+        if(radio.isSelected(weekRadio)){
+            nextWeek();
+        }
         
+        if(radio.isSelected(monthRadio)){
+            nextMonth();
+        }
+    }
+    
+    public void last(){
+        if(radio.isSelected(weekRadio)){
+            lastWeek();
+        }
+        
+        if(radio.isSelected(monthRadio)){
+            lastMonth();
+        }
     }
     
     public void nextWeek(){
@@ -156,11 +193,29 @@ public class DashboardController implements Initializable {
         appointmentView.setItems(Sort.sortByWeek(weekStart));
     }
     
+    public void nextMonth(){
+        if(currentMonth.equals(Month.DECEMBER)){
+            year++;
+        }
+        currentMonth = currentMonth.plus(1);
+        dateRangeLabel.setText(currentMonth.toString() + " " + year);
+        appointmentView.setItems(Sort.sortByMonth(currentMonth, year));
+    }
+    
     public void lastWeek(){
         LocalDateTime weekStart = currentWeekStart.minusDays(6);
         dateRangeLabel.setText(Sort.getWeek(weekStart));
         currentWeekStart = weekStart;
         appointmentView.setItems(Sort.sortByWeek(weekStart));
+    }
+    
+    public void lastMonth() {
+        if(currentMonth.equals(Month.JANUARY)){
+            year--;
+        }
+        currentMonth = currentMonth.minus(1);
+        dateRangeLabel.setText(currentMonth.toString() + " " + year);
+        appointmentView.setItems(Sort.sortByMonth(currentMonth, year));
     }
 
     /**
