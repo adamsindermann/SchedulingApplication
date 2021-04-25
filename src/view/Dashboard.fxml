@@ -45,7 +45,7 @@
                         <RadioButton fx:id="weekRadio" layoutX="868.0" layoutY="16.0" mnemonicParsing="false" onAction="#toggleSwitch" text="Week" />
                         <RadioButton fx:id="allRadio" layoutX="825.0" layoutY="16.0" mnemonicParsing="false" onAction="#toggleSwitch" selected="true" text="All" />
                         <Button fx:id="newAppButton" layoutX="958.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchAppointmentWindow" text="New" />
-                        <Button fx:id="editAppButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="editAppButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" onAction="#editAppointment" text="Edit" />
                         <AnchorPane fx:id="dateAnchor" layoutX="400.0" layoutY="-9.0" maxHeight="50.0" maxWidth="250.0" minHeight="50.0" minWidth="250.0" prefHeight="50.0" prefWidth="250.0" visible="false">
                            <children>
                               <Button fx:id="dateLeft" layoutX="15.0" layoutY="17.0" maxWidth="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#last" prefHeight="20.0" prefWidth="30.0" scaleX="0.7" scaleY="1.3" text="◄">
@@ -92,7 +92,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="newCustButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" text="New" />
+                        <Button fx:id="newCustButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchCustomerWindow" text="New" />
                         <Button fx:id="editCustButton" layoutX="813.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
                         <Label layoutY="14.0" text=" All Customers">
                            <font>
