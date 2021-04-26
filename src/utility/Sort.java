@@ -7,6 +7,7 @@ package utility;
 
 import DOA.DBAppointment;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,6 +60,20 @@ public class Sort {
                 if(appointmentDate.isBefore(weekEnd) || appointmentDate.isEqual(weekEnd)){
                     sorted.add(appointment);
                 }
+            }
+        }
+        
+        return sorted;
+    }
+    
+    public static ObservableList<Appointment> sortByMonth(Month month, int year){
+        ObservableList<Appointment> allAppointments = DBAppointment.getAllAppointments();
+        ObservableList<Appointment> sorted = FXCollections.observableArrayList();
+        for(Appointment appointment: allAppointments){
+            int appointmentYear = appointment.getStart().getYear();
+            Month appointmentMonth = appointment.getStart().getMonth();
+            if(month.equals(appointmentMonth) && year == appointmentYear){
+                sorted.add(appointment);
             }
         }
         

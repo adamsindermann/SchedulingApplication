@@ -98,8 +98,75 @@ public class AppointmentController implements Initializable {
     @FXML
     private TextArea descBox;
 
+    public void editAppointment(Appointment appointment) {
+        LocalDateTime start = appointment.getStart();
+        LocalDateTime end = appointment.getEnd();
+
+        editing = true;
+        thisAppointment = appointment;
+        idBox.setText(Integer.toString(appointment.getAppointmentID()));
+        subjectBox.setText(appointment.getTitle());
+        typeBox.setText(appointment.getType());
+        locationBox.setText(appointment.getLocation());
+        descBox.setText(appointment.getDescription());
+        datePicker.setValue(start.toLocalDate());
+        setHourValue(startHour, startAmPm, start.getHour());
+        setHourValue(endHour, endAmPm, end.getHour());
+        setMinuteValue(startMin, start.getMinute());
+        setMinuteValue(endMin, end.getMinute());
+        if (appointment.getCustomerID() != 0){
+            int custID = appointment.getCustomerID();
+            Customer customer = DBCustomer.getCustomer(custID);
+            customerCombo.setValue(custID + " - " + customer.getName());
+            addCustomer();
+        }
+        
+        if(appointment.getContactID() != 0){
+            int contactID = appointment.getContactID();
+            Contact contact = DBContact.getContact(contactID);
+            contactCombo.setValue(contactID + " - " + contact.getName());
+            addContact();
+        }
+    }
+
     /**
+     * Converts 24 hour time to 12 hour and sets it to the ChoiceBox.
      *
+     * @param hourBox ChoiceBox - The ChoiceBox that the hour will be set to.
+     * @param amPm ChoiceBox - the ChoiceBox that will be set to either AM or
+     * PM.
+     * @param hour Integer - The hour value to be converted and set.
+     */
+    public void setHourValue(ChoiceBox hourBox, ChoiceBox amPm, int hour) {
+        if (hour == 12) {
+            amPm.setValue("PM");
+            hourBox.setValue(12);
+        } else if (hour > 12) {
+            amPm.setValue("PM");
+            hourBox.setValue(hour - 12);
+        } else {
+            amPm.setValue("AM");
+            hourBox.setValue(hour);
+        }
+    }
+
+    /**
+     * Sets a minute value to a ChoiceBox.
+     *
+     * @param minuteBox ChoiceBox - The ChoiceBox that the minute will be set
+     * to.
+     * @param minute Integer - The minute value that will be set.
+     */
+    public void setMinuteValue(ChoiceBox minuteBox, int minute) {
+        if (minute == 0) {
+            minuteBox.setValue("00");
+        } else {
+            minuteBox.setValue(minute);
+        }
+    }
+
+    /**
+     * Initializes ChoiceBoxes.
      */
     @SuppressWarnings("unchecked")
     public void initChoiceBoxes() {
@@ -124,6 +191,9 @@ public class AppointmentController implements Initializable {
 
     }
 
+    /**
+     * Initializes ComboBoxes.
+     */
     @SuppressWarnings("unchecked")
     public void initComboBoxes() {
         ObservableList<Customer> allCustomers = DBCustomer.getAllCustomers();
@@ -140,12 +210,9 @@ public class AppointmentController implements Initializable {
         contactCombo.getItems().add("New Contact +");
     }
 
-    public void comboBoxSelection() {
-        if (customerCombo.getSelectionModel().getSelectedItem().equals("New Customer +")) {
-            System.out.println("New Selected");
-        }
-    }
-
+    /**
+     * Initializes the Attendee TableView. 
+     */
     public void initTableView() {
         nameCol.setCellValueFactory(new PropertyValueFactory<Attendee, String>("name"));
         emailCol.setCellValueFactory(new PropertyValueFactory<Attendee, String>("email"));
@@ -154,6 +221,17 @@ public class AppointmentController implements Initializable {
         attendeeTable.setItems(attendeeList);
     }
 
+    public void comboBoxSelection() {
+        if (customerCombo.getSelectionModel().getSelectedItem().equals("New Customer +")) {
+            System.out.println("New Selected");
+        }
+    }
+
+    /**
+     * Gets customer from Customer ComboBox and adds it to the Attendee table. 
+     * Also converts customer object to Attendee and updates the current appointment
+     * ID with the selected customer ID. 
+     */
     public void addCustomer() {
         if (!customerCombo.getSelectionModel().isEmpty()) {
             String customerString = customerCombo.getValue().toString();
@@ -206,7 +284,7 @@ public class AppointmentController implements Initializable {
         int endM = Integer.parseInt(endMin.getValue().toString());
         if (startAmPm.getValue().toString().equals("PM")) {
             startH = startH + 12;
-        } 
+        }
         if (endAmPm.getValue().toString().equals("PM")) {
             endH = endH + 12;
         }
