@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1100.0" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DashboardController">
+<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1100.0" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DashboardController">
    <children>
       <TabPane layoutX="50.0" layoutY="50.0" minHeight="500.0" minWidth="1000.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -92,8 +92,8 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="newCustButton" layoutX="860.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchCustomerWindow" text="New" />
-                        <Button fx:id="editCustButton" layoutX="813.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="newCustButton" layoutX="958.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchCustomerWindow" text="New" />
+                        <Button fx:id="editCustButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
                         <Label layoutY="14.0" text=" All Customers">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />

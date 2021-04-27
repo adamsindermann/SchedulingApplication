@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DOA;
 
 import Database.DBConnection;
@@ -14,11 +9,16 @@ import javafx.collections.FXCollections;
 import utility.Session;
 
 /**
- *
+ * Database accessor methods for Appointment table.  
  * @author Adam Sindermann
  */
 public class DBAppointment {
 
+    
+    /**
+     * Gets all appointments from DB and returns an ObservableList.
+     * @return ObservableList - All appointments in DB. 
+     */
     public static ObservableList<Appointment> getAllAppointments() {
         Connection conn = DBConnection.getConnection();
         ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
@@ -59,6 +59,11 @@ public class DBAppointment {
         return allAppointments;
     }
 
+    /**
+     * Saves a new appointment to DB. 
+     * @param appointment Appointment - The new appointment to be saved.
+     * @return Boolean - True if the appointment is saved. 
+     */
     public static boolean save(Appointment appointment) {
         Connection conn = DBConnection.getConnection();
         boolean executed = false;
@@ -84,12 +89,67 @@ public class DBAppointment {
             } else {
                 ps.setInt(9, appointment.getCustomerID());
             }
-            ps.setInt(10, appointment.getUserID());
+            if (appointment.getUserID() == 0) {
+                ps.setString(10, null);
+            } else {
+                ps.setInt(10, appointment.getUserID());
+            }
             if (appointment.getContactID() == 0) {
                 ps.setString(11, null);
             } else {
                 ps.setInt(11, appointment.getContactID());
             }
+            executed = ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return executed;
+    }
+
+    /**
+     * Saves an existing appointment to the DB. 
+     * @param appointment Appointment - The appointment to be updated. 
+     * @return Boolean - True if the appointment is updated. 
+     */
+    public static boolean update(Appointment appointment) {
+        Connection conn = DBConnection.getConnection();
+        boolean executed = false;
+        try {
+            String update = "UPDATE appointments SET Title = ?, Description = ?, "
+                    + "Location = ?, Type = ?, Start = ?, End = ?,"
+                    + " Last_Updated_By = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? "
+                    + "WHERE Appointment_ID = ?;";
+            DBQuery.setPreparedStatement(conn, update);
+            PreparedStatement ps = DBQuery.getPreparedStatement();
+
+            Timestamp start = Timestamp.valueOf(appointment.getStart());
+            Timestamp end = Timestamp.valueOf(appointment.getEnd());
+
+            ps.setString(1, appointment.getTitle());
+            ps.setString(2, appointment.getDescription());
+            ps.setString(3, appointment.getLocation());
+            ps.setString(4, appointment.getType());
+            ps.setTimestamp(5, start);
+            ps.setTimestamp(6, end);
+            ps.setString(7, Session.getCurrentUser().getUserName());
+
+            if (appointment.getCustomerID() == 0) {
+                ps.setString(8, null);
+            } else {
+                ps.setInt(8, appointment.getCustomerID());
+            }
+            if (appointment.getUserID() == 0) {
+                ps.setString(9, null);
+            } else {
+                ps.setInt(9, appointment.getUserID());
+            }
+            if (appointment.getContactID() == 0) {
+                ps.setString(10, null);
+            } else {
+                ps.setInt(10, appointment.getContactID());
+            }
+            ps.setInt(11, appointment.getAppointmentID());
             executed = ps.execute();
 
         } catch (SQLException e) {

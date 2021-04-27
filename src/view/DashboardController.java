@@ -158,6 +158,7 @@ public class DashboardController implements Initializable {
 
             stage.setScene(modifyPartScene);
             stage.showAndWait();
+            appointmentView.setItems(DBAppointment.getAllAppointments());
         } else {
 //            InputValidation.displayInputAlert("Please select a part to modify.");
         }

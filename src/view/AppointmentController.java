@@ -30,6 +30,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -46,6 +47,8 @@ public class AppointmentController implements Initializable {
 
     private Boolean editing = false;
     private Appointment thisAppointment;
+    @FXML
+    private Label headerLabel;
 
     //Time and Date
     @FXML
@@ -103,6 +106,7 @@ public class AppointmentController implements Initializable {
         LocalDateTime end = appointment.getEnd();
 
         editing = true;
+        headerLabel.setText("Edit Appointment");
         thisAppointment = appointment;
         idBox.setText(Integer.toString(appointment.getAppointmentID()));
         subjectBox.setText(appointment.getTitle());
@@ -294,7 +298,11 @@ public class AppointmentController implements Initializable {
         LocalTime endTime = LocalTime.of(endH, endM);
         thisAppointment.setStart(LocalDateTime.of(date, startTime));
         thisAppointment.setEnd(LocalDateTime.of(date, endTime));
-        boolean saved = DBAppointment.save(thisAppointment);
+        if(!editing){
+            boolean saved = DBAppointment.save(thisAppointment);
+        } else {
+            boolean saved =DBAppointment.update(thisAppointment);
+        }
 
         Stage stage = (Stage) subjectBox.getScene().getWindow();
         stage.close();
