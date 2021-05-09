@@ -10,6 +10,7 @@ package model;
  * @author Adam Sindermann
  */
 public class Customer {
+
     private int custID;
     private String name;
     private String address;
@@ -31,9 +32,13 @@ public class Customer {
 
     public Customer(int custID) {
         this.custID = custID;
+        this.name = "";
+        this.address = "";
+        this.postalCode = "";
+        this.phone = "";
+        this.divisionID = 0;
+
     }
-    
-    
 
     public int getCustID() {
         return custID;
@@ -98,7 +103,5 @@ public class Customer {
     public void setDivision(String division) {
         this.division = division;
     }
-    
-    
-    
+
 }

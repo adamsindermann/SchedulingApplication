@@ -9,9 +9,11 @@ import Database.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
+import java.time.LocalDateTime;
 import model.Country;
 import model.Customer;
 import model.Division;
+import utility.Session;
 
 /**
  *
@@ -88,4 +90,55 @@ public class DBCustomer {
         return customer;
     }
 
+    public static boolean save(Customer customer) {
+        Connection conn = DBConnection.getConnection();
+        boolean executed = false;
+        try {
+            String insert = "INSERT INTO customers(Customer_ID, Customer_Name, Address, Postal_Code, Phone, "
+                    + "Created_By, Last_Updated_By, Division_ID) VALUES(?,?,?,?,?,?,?,?)";
+            DBQuery.setPreparedStatement(conn, insert);
+            PreparedStatement ps = DBQuery.getPreparedStatement();
+
+            ps.setInt(1, customer.getCustID());
+            ps.setString(2, customer.getName());
+            ps.setString(3, customer.getAddress());
+            ps.setString(4, customer.getPostalCode());
+            ps.setString(5, customer.getPhone());
+            ps.setString(6, Session.getCurrentUser().getUserName());
+            ps.setString(7, Session.getCurrentUser().getUserName());
+            ps.setInt(8, customer.getDivisionID());
+
+            executed = ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return executed;
+    }
+
+    public static boolean update(Customer customer) {
+        Connection conn = DBConnection.getConnection();
+        boolean executed = false;
+        try {
+            String update = "UPDATE customers SET Customer_Name = ?, Address = ?, "
+                    + "Postal_Code = ?, Phone = ?, Last_Update = ?, Last_Updated_By = ?, "
+                    + "Division_ID = ? WHERE Customer_ID = ?";
+            DBQuery.setPreparedStatement(conn, update);
+            PreparedStatement ps = DBQuery.getPreparedStatement();
+            
+            ps.setString(1, customer.getName());
+            ps.setString(2, customer.getAddress());
+            ps.setString(3, customer.getPostalCode());
+            ps.setString(4, customer.getPhone());
+            ps.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
+            ps.setString(6, Session.getCurrentUser().getUserName());
+            ps.setInt(7, customer.getDivisionID());
+            ps.setInt(8, customer.getCustID());
+            
+            executed = ps.execute();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return executed;
+    }
 }

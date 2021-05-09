@@ -7,51 +7,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="370.0" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="view.CustomerController">
+<AnchorPane id="AnchorPane" prefHeight="370.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CustomerController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="New Customer">
+      <Label fx:id="headerLabel" layoutX="14.0" layoutY="14.0" text="New Customer">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <TextField editable="false" layoutX="185.0" layoutY="15.0" prefWidth="48.0" promptText="Auto">
+      <TextField fx:id="idBox" disable="true" editable="false" layoutX="185.0" layoutY="15.0" prefWidth="48.0" promptText="Auto">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
       <Label layoutX="162.0" layoutY="19.0" text="ID:" />
-      <TextField layoutX="88.0" layoutY="83.0" prefHeight="25.0" prefWidth="149.0" />
-      <Label layoutX="51.0" layoutY="87.0" text="First:" />
-      <Label layoutX="144.0" layoutY="64.0" text="Name" underline="true">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Label>
-      <TextField layoutX="88.0" layoutY="124.0" />
-      <Label layoutX="50.0" layoutY="128.0" text="Last:" />
+      <TextField fx:id="nameBox" layoutX="88.0" layoutY="83.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="46.0" layoutY="87.0" text="Name:" />
       <Label layoutX="220.0" layoutY="166.0" text="Address" underline="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="88.0" layoutY="185.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="streetBox" layoutX="88.0" layoutY="185.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="45.0" layoutY="189.0" text="Street:" />
-      <TextField layoutX="88.0" layoutY="224.0" />
+      <TextField fx:id="aptBox" layoutX="88.0" layoutY="224.0" />
       <Label layoutX="27.0" layoutY="228.0" text="  Unit/Apt:" />
-      <ComboBox layoutX="313.0" layoutY="185.0" prefWidth="150.0" />
+      <ComboBox fx:id="countryBox" layoutX="313.0" layoutY="185.0" onAction="#populateDistricts" prefWidth="150.0" />
       <Label layoutX="263.0" layoutY="189.0" text="Country:" />
-      <TextField layoutX="314.0" layoutY="83.0" />
+      <TextField fx:id="phoneBox" layoutX="314.0" layoutY="83.0" />
       <Label layoutX="267.0" layoutY="87.0" text="Phone:" />
       <Label layoutX="314.0" layoutY="108.0" text="000-000-0000" textFill="#0000008d">
          <font>
             <Font name="System Italic" size="10.0" />
          </font>
       </Label>
-      <ComboBox layoutX="313.0" layoutY="224.0" prefWidth="150.0" />
+      <ComboBox fx:id="districtBox" layoutX="313.0" layoutY="224.0" prefWidth="150.0" />
       <Label layoutX="266.0" layoutY="228.0" text="District:" />
-      <TextField layoutX="314.0" layoutY="275.0" />
+      <TextField fx:id="postalBox" layoutX="314.0" layoutY="275.0" />
       <Label layoutX="245.0" layoutY="279.0" text="Postal Code: " />
-      <Button layoutX="422.0" layoutY="331.0" mnemonicParsing="false" text="Save" />
+      <Button layoutX="422.0" layoutY="331.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <Label fx:id="nameStar" layoutX="36.0" layoutY="87.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="streetStar" layoutX="39.0" layoutY="189.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="phoneStar" layoutX="260.0" layoutY="87.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="countryStar" layoutX="257.0" layoutY="189.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="districtStar" layoutX="260.0" layoutY="228.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="postalStar" layoutX="237.0" layoutY="279.0" prefHeight="17.0" prefWidth="0.0" text="*" textFill="RED" visible="false" />
+      <Label fx:id="reqFieldLabel" layoutX="60.0" layoutY="323.0" text=" = Required Field" visible="false" />
+      <Label fx:id="reqFieldStar" layoutX="57.0" layoutY="323.0" prefHeight="17.0" prefWidth="0.0" text="*" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

@@ -301,7 +301,7 @@ public class AppointmentController implements Initializable {
         if(!editing){
             boolean saved = DBAppointment.save(thisAppointment);
         } else {
-            boolean saved =DBAppointment.update(thisAppointment);
+            boolean saved = DBAppointment.update(thisAppointment);
         }
 
         Stage stage = (Stage) subjectBox.getScene().getWindow();

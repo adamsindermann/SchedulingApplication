@@ -71,5 +71,28 @@ public class DBCountry {
 
         return country;
     }
+    
+    public static Country getCountry(String countryName){
+        Connection conn = DBConnection.getConnection();
+        Country country = new Country(-1, "");
+        try {
+            String query = "SELECT * FROM countries WHERE Country = ?";
+            DBQuery.setPreparedStatement(conn, query);
+            PreparedStatement ps = DBQuery.getPreparedStatement();
+
+            ps.setString(1, countryName);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int countryID = rs.getInt("Country_ID");
+
+                country = new Country(countryID, countryName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return country;
+    }
 
 }

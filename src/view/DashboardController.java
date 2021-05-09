@@ -27,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utility.Alerts;
 import utility.Sort;
 import utility.TimeInterface;
 import utility.ToggleInterface;
@@ -147,20 +148,20 @@ public class DashboardController implements Initializable {
 
     public void editAppointment() throws IOException {
         if (!appointmentView.getSelectionModel().getSelectedItems().isEmpty()) {
-            FXMLLoader appointmentLoader =loader.getLoader(apptWindow);
+            FXMLLoader appointmentLoader = loader.getLoader(apptWindow);
             Parent parent = appointmentLoader.load();
 
             AppointmentController controller = appointmentLoader.getController();
             controller.editAppointment(appointmentView.getSelectionModel().getSelectedItem());
 
-            Scene modifyPartScene = new Scene(parent);
+            Scene modifyAppointmentScene = new Scene(parent);
             Stage stage = new Stage();
 
-            stage.setScene(modifyPartScene);
+            stage.setScene(modifyAppointmentScene);
             stage.showAndWait();
             appointmentView.setItems(DBAppointment.getAllAppointments());
         } else {
-//            InputValidation.displayInputAlert("Please select a part to modify.");
+            Alerts.displayInputAlert("Please Select an Appointment");
         }
     }
 
@@ -168,6 +169,25 @@ public class DashboardController implements Initializable {
         WindowUtility.newWindowWait(loader.getLoader(custWindow), "Customer");
         customerView.setItems(DBCustomer.getAllCustomers());
 
+    }
+
+    public void editCustomer() throws IOException {
+        if (!customerView.getSelectionModel().getSelectedItems().isEmpty()) {
+            FXMLLoader customerLoader = loader.getLoader(custWindow);
+            Parent parent = customerLoader.load();
+
+            CustomerController controller = customerLoader.getController();
+            controller.editCustomer(customerView.getSelectionModel().getSelectedItem());
+
+            Scene modifyCustomerScene = new Scene(parent);
+            Stage stage = new Stage();
+
+            stage.setScene(modifyCustomerScene);
+            stage.showAndWait();
+            customerView.setItems(DBCustomer.getAllCustomers());
+        } else {
+            Alerts.displayInputAlert("Please select a customer");
+        }
     }
 
     public void toggleSwitch() {

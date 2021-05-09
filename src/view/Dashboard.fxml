@@ -93,7 +93,7 @@
                            </columnResizePolicy>
                         </TableView>
                         <Button fx:id="newCustButton" layoutX="958.0" layoutY="445.0" mnemonicParsing="false" onAction="#launchCustomerWindow" text="New" />
-                        <Button fx:id="editCustButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="editCustButton" layoutX="911.0" layoutY="445.0" mnemonicParsing="false" onAction="#editCustomer" text="Edit" />
                         <Label layoutY="14.0" text=" All Customers">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
