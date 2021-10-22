@@ -8,6 +8,7 @@ package view;
 import DOA.DBAppointment;
 import DOA.DBContact;
 import DOA.DBCustomer;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -29,6 +30,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -37,6 +39,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import utility.WindowInterface;
+import utility.WindowUtility;
 
 /**
  * FXML Controller class
@@ -101,6 +105,12 @@ public class AppointmentController implements Initializable {
     @FXML
     private TextArea descBox;
 
+    private final WindowInterface loader = location -> {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(location));
+        return loader;
+    };
+
     public void editAppointment(Appointment appointment) {
         LocalDateTime start = appointment.getStart();
         LocalDateTime end = appointment.getEnd();
@@ -118,14 +128,14 @@ public class AppointmentController implements Initializable {
         setHourValue(endHour, endAmPm, end.getHour());
         setMinuteValue(startMin, start.getMinute());
         setMinuteValue(endMin, end.getMinute());
-        if (appointment.getCustomerID() != 0){
+        if (appointment.getCustomerID() != 0) {
             int custID = appointment.getCustomerID();
             Customer customer = DBCustomer.getCustomer(custID);
             customerCombo.setValue(custID + " - " + customer.getName());
             addCustomer();
         }
-        
-        if(appointment.getContactID() != 0){
+
+        if (appointment.getContactID() != 0) {
             int contactID = appointment.getContactID();
             Contact contact = DBContact.getContact(contactID);
             contactCombo.setValue(contactID + " - " + contact.getName());
@@ -209,13 +219,11 @@ public class AppointmentController implements Initializable {
         for (Contact contact : allContacts) {
             contactCombo.getItems().add(contact.getContactID() + " - " + contact.getName());
         }
-
-        customerCombo.getItems().add("New Customer +");
-        contactCombo.getItems().add("New Contact +");
+  
     }
 
     /**
-     * Initializes the Attendee TableView. 
+     * Initializes the Attendee TableView.
      */
     public void initTableView() {
         nameCol.setCellValueFactory(new PropertyValueFactory<Attendee, String>("name"));
@@ -225,16 +233,11 @@ public class AppointmentController implements Initializable {
         attendeeTable.setItems(attendeeList);
     }
 
-    public void comboBoxSelection() {
-        if (customerCombo.getSelectionModel().getSelectedItem().equals("New Customer +")) {
-            System.out.println("New Selected");
-        }
-    }
 
     /**
-     * Gets customer from Customer ComboBox and adds it to the Attendee table. 
-     * Also converts customer object to Attendee and updates the current appointment
-     * ID with the selected customer ID. 
+     * Gets customer from Customer ComboBox and adds it to the Attendee table.
+     * Also converts customer object to Attendee and updates the current
+     * appointment ID with the selected customer ID.
      */
     public void addCustomer() {
         if (!customerCombo.getSelectionModel().isEmpty()) {
@@ -298,7 +301,7 @@ public class AppointmentController implements Initializable {
         LocalTime endTime = LocalTime.of(endH, endM);
         thisAppointment.setStart(LocalDateTime.of(date, startTime));
         thisAppointment.setEnd(LocalDateTime.of(date, endTime));
-        if(!editing){
+        if (!editing) {
             boolean saved = DBAppointment.save(thisAppointment);
         } else {
             boolean saved = DBAppointment.update(thisAppointment);

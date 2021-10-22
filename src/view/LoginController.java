@@ -2,9 +2,11 @@ package view;
 
 import DOA.DBCountry;
 import DOA.DBUser;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -47,18 +49,15 @@ public class LoginController implements Initializable {
     private Label passwordLabel;
     @FXML
     private Label incorrectPassword;
-    
+
     //File Locations
     private final String dashboard = "/view/Dashboard.fxml";
-    
+
     private final WindowInterface loader = location -> {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(location));
         return loader;
     };
-    
-    
-
 
     public void login() throws IOException {
         String userName = usernameField.getText();
@@ -67,15 +66,38 @@ public class LoginController implements Initializable {
         User user = DBUser.getUser(userName);
         if (user.getUserName().isEmpty()) {
             invalid();
+            report(false);
         } else if (!user.getPassword().equals(password)) {
+            report(false);
             invalid();
         } else {
+            report(true);
             Session.setCurrentUser(user);
             WindowUtility.newWindow(loader.getLoader(dashboard), "Dashboard");
             Stage stage = (Stage) submit.getScene().getWindow();
-            stage.close(); 
+            stage.close();
         }
 
+    }
+
+    public void report(boolean success) throws IOException {
+        String location = "src/Reports/login_activity.txt";
+        FileWriter fw = new FileWriter(location, true);
+        PrintWriter loginFile = new PrintWriter(fw);
+        String username = usernameField.getText();
+        String time = ZonedDateTime.now(ZoneId.of("UTC")).toString();
+        String output;
+        if (success) {
+            output = "User " + username + " successfully logged in at " + time;
+        } else {
+            if (username.isBlank()) {
+                username = "unknown";
+            }
+            output = "User " + username + " provided invalid login at " + time;
+        }
+
+        loginFile.println(output);
+        loginFile.close();
     }
 
     public void invalid() {
@@ -87,7 +109,6 @@ public class LoginController implements Initializable {
         }
 
     }
-
 
     /**
      * Initializes the controller class.

@@ -122,6 +122,7 @@ public class DashboardController implements Initializable {
     //File locations
     private String apptWindow = "/view/Appointment.fxml";
     private String custWindow = "/view/Customer.fxml";
+    private String reportWindow = "/view/Reports.fxml";
 
     private final WindowInterface loader = location -> {
         FXMLLoader loader = new FXMLLoader();
@@ -140,6 +141,10 @@ public class DashboardController implements Initializable {
             return false;
         }
     };
+    
+    public void launchReportsWindow() throws IOException {
+        WindowUtility.newWindow(loader.getLoader(reportWindow), "Reports");
+    }
 
     public void launchAppointmentWindow() throws IOException {
         WindowUtility.newWindowWait(loader.getLoader(apptWindow), "Appointment");
