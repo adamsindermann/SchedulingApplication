@@ -5,13 +5,18 @@
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.web.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.swing.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.base.jar!/" />
-      <root url="jar://$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.23.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.fxml.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.controls.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.graphics.jar!/" />
       <root url="jar://$PROJECT_DIR$/dist/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.27.jar!/" />
+      <root url="file://$PATH_TO_FX$" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PATH_TO_FX$" />
+    </SOURCES>
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
   </library>
 </component>
