@@ -2,9 +2,13 @@ package view;
 
 import DOA.DBAppointment;
 import DOA.DBCustomer;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,11 +19,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Appointment;
 import model.Customer;
+
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalField;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -71,6 +77,8 @@ public class DashboardController implements Initializable {
     @FXML
     private Button editAppButton;
     @FXML
+    private Button deleteAppButton;
+    @FXML
     private Tab appTab;
 
     //Appointment Radio Buttons
@@ -103,6 +111,8 @@ public class DashboardController implements Initializable {
     private Button newCustButton;
     @FXML
     private Button editCustButton;
+    @FXML
+    private Button deleteCustButton;
     @FXML
     private Tab custTab;
 
@@ -141,14 +151,14 @@ public class DashboardController implements Initializable {
             return false;
         }
     };
-    
+
     public void launchReportsWindow() throws IOException {
         WindowUtility.newWindow(loader.getLoader(reportWindow), "Reports");
     }
 
     public void launchAppointmentWindow() throws IOException {
         WindowUtility.newWindowWait(loader.getLoader(apptWindow), "Appointment");
-        appointmentView.setItems(DBAppointment.getAllAppointments());
+        appointmentView.setItems(DBAppointment.getUserAppointments());
     }
 
     public void editAppointment() throws IOException {
@@ -164,7 +174,7 @@ public class DashboardController implements Initializable {
 
             stage.setScene(modifyAppointmentScene);
             stage.showAndWait();
-            appointmentView.setItems(DBAppointment.getAllAppointments());
+            appointmentView.setItems(DBAppointment.getUserAppointments());
         } else {
             Alerts.displayInputAlert("Please Select an Appointment");
         }
@@ -198,7 +208,7 @@ public class DashboardController implements Initializable {
     public void toggleSwitch() {
 
         if (radio.isSelected(allRadio)) {
-            appointmentView.setItems(DBAppointment.getAllAppointments());
+            appointmentView.setItems(DBAppointment.getUserAppointments());
             dateAnchor.visibleProperty().set(false);
         }
         if (radio.isSelected(weekRadio)) {
@@ -269,6 +279,47 @@ public class DashboardController implements Initializable {
         appointmentView.setItems(Sort.sortByMonth(currentMonth, year));
     }
 
+    public void deleteAppointment() {
+        String header = "Are you sure you want to delete this Appointment?";
+        String body = "This cannot be undone.";
+        ObservableList<Appointment> deletedAppointment = FXCollections.observableArrayList();
+        if (!appointmentView.getSelectionModel().getSelectedItems().isEmpty()) {
+            if (Alerts.displayValidationAlert(header, body)) {
+                Appointment appointmentSelected = appointmentView.getSelectionModel().getSelectedItem();
+                deletedAppointment.add(appointmentSelected);
+                DBAppointment.delete(appointmentSelected);
+                Alerts.displayDeletedAppointments(deletedAppointment);
+                appointmentView.setItems(DBAppointment.getUserAppointments());
+            }
+        } else {
+            Alerts.displayInputAlert("Please Select an Appointment");
+        }
+
+
+    }
+
+    public void deleteCustomer() {
+        String header = "Are you sure you want to delete this customer?";
+        String body = "All appointments associated with" +
+                " this customer will be deleted. This cannot be undone.";
+
+        if (!customerView.getSelectionModel().getSelectedItems().isEmpty()) {
+            if (Alerts.displayValidationAlert(header, body)) {
+                Customer customerSelected = customerView.getSelectionModel().getSelectedItem();
+                ObservableList<Appointment> customerAppointments = DBAppointment.getCustomerAppointments(customerSelected.getCustID());
+                for (Appointment appointment : customerAppointments) {
+                    DBAppointment.delete(appointment);
+                }
+                DBCustomer.delete(customerSelected);
+                Alerts.displayDeletedAppointments(customerAppointments);
+            }
+            customerView.setItems(DBCustomer.getAllCustomers());
+            appointmentView.setItems(DBAppointment.getUserAppointments());
+        } else {
+            Alerts.displayInputAlert("Please select a customer");
+        }
+    }
+
     /**
      * Initializes the controller class.
      */
@@ -294,7 +345,7 @@ public class DashboardController implements Initializable {
         appEndCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("endString"));
         appCustIDCol.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("customerID"));
 
-        appointmentView.setItems(DBAppointment.getAllAppointments());
+        appointmentView.setItems(DBAppointment.getUserAppointments());
 
         sortToggle = new ToggleGroup();
         allRadio.setToggleGroup(sortToggle);

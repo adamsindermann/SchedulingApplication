@@ -26,27 +26,7 @@ public class SchedulingApplication extends Application {
     public static void main(String[] args) throws SQLException {
         Connection conn = DBConnection.startConnection();
         Session.setZoneID(ZoneId.systemDefault());
-//        String insertStatement = "INSERT INTO product_tbl(Description, Price) VALUES(?,?)";
-//        
-//        DBQuery.setPreparedStatement(conn, insertStatement);
-//        
-//        PreparedStatement ps = DBQuery.getPreparedStatement();
-//
-//        String description = "iPhone 11";
-//        int price = 1000;
-//        
-//        ps.setString(1, description);
-//        ps.setInt(2, price);
-//        
-//        ps.execute();
-//        
-//        if(ps.getUpdateCount() > 0 ){
-//            System.out.println(ps.getUpdateCount() + " Rows Affected");
-//        } else {
-//            System.out.println("No Change");
-//        }
-
-        //Locale.setDefault(Locale.FRENCH);
+//        Locale.setDefault(Locale.FRENCH);
         
         launch(args);
         DBConnection.closeConnection();

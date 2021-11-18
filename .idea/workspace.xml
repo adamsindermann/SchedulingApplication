@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="Working again">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBContact.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCountry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBDivision.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Database/DBConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Appointment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Attendee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Contact.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Country.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Division.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/TotalReportObj.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/schedulingapplication/SchedulingApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/ComboBoxInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Nat_fr.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Session.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Sort.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/TimeInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/ToggleInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/WindowInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/WindowUtility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/AppointmentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Customer.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Reports.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/ReportsController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReport.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DOA/DBAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DOA/DBCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reports/login_activity.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schedulingapplication/SchedulingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/schedulingapplication/SchedulingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Alerts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Appointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DashboardController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Adam Sindermann &lt;adamsindermann@gmail.com&gt;" />
+        <option value="Adam Sindermann" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1zsTc9jSw5hwRutHmguK7pjLqJk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+  </component>
+  <component name="RunManager">
+    <configuration name="SchedulingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="schedulingapplication.SchedulingApplication" />
+      <module name="SchedulingApplication" />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.fxml,javafx.controls,javafx.graphics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SchedulingApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="" />
+      <created>1634935873788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634935873788</updated>
+      <workItem from="1634935875465" duration="2388000" />
+      <workItem from="1635328869898" duration="3982000" />
+      <workItem from="1635423366723" duration="1849000" />
+      <workItem from="1635518590001" duration="4772000" />
+      <workItem from="1635774986331" duration="4894000" />
+      <workItem from="1635868855960" duration="4232000" />
+      <workItem from="1635943856611" duration="2363000" />
+      <workItem from="1636647839375" duration="8815000" />
+      <workItem from="1636984980950" duration="8083000" />
+      <workItem from="1637080192236" duration="5869000" />
+      <workItem from="1637245639502" duration="7458000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial">
+      <created>1634936247972</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634936247972</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Working again">
+      <created>1635332799535</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1635332799535</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial" />
+    <MESSAGE value="Working again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working again" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

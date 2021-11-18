@@ -86,12 +86,10 @@ public class CustomerController implements Initializable {
     public void populateCountries() {
         ObservableList<Country> allCountries = DBCountry.getAllCountries();
         ObservableList<String> countryNames = FXCollections.observableArrayList();
-        countryNames.add("United States");
-        countryNames.add("Canada");
+//        countryNames.add("United States");
+//        countryNames.add("Canada");
         for (Country country : allCountries) {
-            if (!country.getName().equals("United States") && !country.getName().equals("Canada")) {
-                countryNames.add(country.getName());
-            }
+            countryNames.add(country.getName());
         }
         countryBox.setItems(countryNames);
     }
@@ -162,30 +160,25 @@ public class CustomerController implements Initializable {
         boolean allEntered = true;
         if (nameBox.getText().isEmpty()) {
             allEntered = false;
+            nameStar.setVisible(true);
         }
         if (phoneBox.getText().isEmpty()) {
             allEntered = false;
+            phoneStar.setVisible(true);
         }
         if (streetBox.getText().isEmpty()) {
+            streetStar.setVisible(true);
             allEntered = false;
         }
         if (postalBox.getText().isEmpty()) {
             allEntered = false;
+            postalStar.setVisible(true);
         }
         if (!combos.comboPopulated(countryBox)) {
             allEntered = false;
-        }
-
-        if (!allEntered) {
-            reqFieldStar.setVisible(true);
-            reqFieldLabel.setVisible(true);
-            nameStar.setVisible(true);
-            phoneStar.setVisible(true);
-            streetStar.setVisible(true);
-            postalStar.setVisible(true);
             countryStar.setVisible(true);
-
         }
+
         return allEntered;
     }
 

@@ -8,8 +8,11 @@ package DOA;
 import Database.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.time.LocalDateTime;
+
+import model.Appointment;
 import model.Country;
 import model.Customer;
 import model.Division;
@@ -125,7 +128,7 @@ public class DBCustomer {
                     + "Division_ID = ? WHERE Customer_ID = ?";
             DBQuery.setPreparedStatement(conn, update);
             PreparedStatement ps = DBQuery.getPreparedStatement();
-            
+
             ps.setString(1, customer.getName());
             ps.setString(2, customer.getAddress());
             ps.setString(3, customer.getPostalCode());
@@ -134,11 +137,33 @@ public class DBCustomer {
             ps.setString(6, Session.getCurrentUser().getUserName());
             ps.setInt(7, customer.getDivisionID());
             ps.setInt(8, customer.getCustID());
-            
+
             executed = ps.execute();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return executed;
     }
+
+    public static boolean delete(Customer customer) {
+        Connection conn = DBConnection.getConnection();
+        boolean executed = false;
+        try {
+            String delete = "DELETE FROM customers WHERE Customer_ID = ?";
+            DBQuery.setPreparedStatement(conn, delete);
+
+            PreparedStatement ps = DBQuery.getPreparedStatement();
+
+            ps.setInt(1, customer.getCustID());
+            executed = ps.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+
+        }
+        return executed;
+    }
+
+
 }

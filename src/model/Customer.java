@@ -5,8 +5,11 @@
  */
 package model;
 
+import DOA.DBAppointment;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
- *
  * @author Adam Sindermann
  */
 public class Customer {
@@ -103,5 +106,6 @@ public class Customer {
     public void setDivision(String division) {
         this.division = division;
     }
+
 
 }

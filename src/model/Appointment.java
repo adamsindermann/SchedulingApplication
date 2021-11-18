@@ -167,4 +167,24 @@ public class Appointment {
         this.endString = endString;
     }
 
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentID=" + appointmentID +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", location='" + location + '\'' +
+                ", type='" + type + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", customerID=" + customerID +
+                ", userID=" + userID +
+                ", contactID=" + contactID +
+                ", dateString='" + dateString + '\'' +
+                ", startString='" + startString + '\'' +
+                ", endString='" + endString + '\'' +
+                ", dateFormatter=" + dateFormatter +
+                ", timeFormatter=" + timeFormatter +
+                '}';
+    }
 }
