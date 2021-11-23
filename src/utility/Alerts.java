@@ -13,6 +13,8 @@ import javafx.scene.control.ButtonType;
 import model.Appointment;
 import model.Customer;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 /**
@@ -67,6 +69,34 @@ public class Alerts {
         alert.setTitle("Appointment Overlap");
         alert.setHeaderText(header);
         alert.setContentText(body);
+
+        alert.showAndWait();
+    }
+
+    public static void upcomingAppointmentAlert(Appointment appointment) {
+        String header = "You have an upcoming appointment:";
+
+        int id = appointment.getAppointmentID();
+        LocalDate date = appointment.getStart().toLocalDate();
+        LocalTime time = appointment.getStart().toLocalTime();
+        String dateString = date.toString();
+        String timeString = time.toString();
+        String body = "Appointment ID: " + id +
+                "\n Date: " + dateString +
+                "\n Time: " + timeString;
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Upcoming Appointments");
+        alert.setHeaderText(header);
+        alert.setContentText(body);
+
+        alert.showAndWait();
+    }
+
+    public static void noUpcomingAppointmentAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Upcoming Appointments");
+        alert.setHeaderText("You have no upcoming appointments");
 
         alert.showAndWait();
     }

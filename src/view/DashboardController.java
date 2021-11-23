@@ -17,6 +17,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.shape.StrokeLineCap;
 import model.Appointment;
 import model.Customer;
 
@@ -320,6 +321,28 @@ public class DashboardController implements Initializable {
         }
     }
 
+    public static void checkUpcomingAppointments() {
+        ObservableList<Appointment> appointments = DBAppointment.getUserAppointments();
+        LocalDateTime current = LocalDateTime.now();
+        LocalDateTime currentPlus15Minutes = current.plusMinutes(15);
+        Appointment upcomingAppointment = null;
+        Boolean upcomingAppt = false;
+        for (Appointment appointment : appointments) {
+            LocalDateTime appointmentTime = appointment.getStart();
+            if (appointmentTime.isAfter(current) && appointmentTime.isBefore(currentPlus15Minutes)) {
+                upcomingAppointment = appointment;
+                upcomingAppt = true;
+                break;
+            }
+        }
+
+        if (upcomingAppt) {
+            Alerts.upcomingAppointmentAlert(upcomingAppointment);
+        } else {
+            Alerts.noUpcomingAppointmentAlert();
+        }
+    }
+
     /**
      * Initializes the controller class.
      */
@@ -351,6 +374,8 @@ public class DashboardController implements Initializable {
         allRadio.setToggleGroup(sortToggle);
         weekRadio.setToggleGroup(sortToggle);
         monthRadio.setToggleGroup(sortToggle);
+
+        checkUpcomingAppointments();
 
     }
 

@@ -1,60 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="Working again">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBContact.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCountry.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBDivision.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBQuery.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Database/DBConnection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Appointment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Attendee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Contact.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Country.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Division.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/TotalReportObj.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/schedulingapplication/SchedulingApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/ComboBoxInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Nat_fr.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Session.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Sort.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/TimeInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/ToggleInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/WindowInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/WindowUtility.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/AppointmentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Customer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/LoginController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Reports.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/ReportsController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReport.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReportController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DOA/DBAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DOA/DBCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBCustomer.java" afterDir="false" />
+    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="Added input validation for appointment creation">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reports/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schedulingapplication/SchedulingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/schedulingapplication/SchedulingApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utility/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Appointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DashboardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/DBConnection.class" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -144,7 +103,9 @@
       <workItem from="1636647839375" duration="8815000" />
       <workItem from="1636984980950" duration="8083000" />
       <workItem from="1637080192236" duration="5869000" />
-      <workItem from="1637245639502" duration="7458000" />
+      <workItem from="1637245639502" duration="9215000" />
+      <workItem from="1637600223105" duration="2086000" />
+      <workItem from="1637669951611" duration="3064000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1634936247972</created>
@@ -160,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635332799535</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added input validation for appointment creation">
+      <created>1637255686459</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637255686459</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +149,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
     <MESSAGE value="Working again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working again" />
+    <MESSAGE value="Added input validation for appointment creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added input validation for appointment creation" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
