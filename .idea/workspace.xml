@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="Added input validation for appointment creation">
+    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reports/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DashboardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +93,7 @@
       <workItem from="1637080192236" duration="5869000" />
       <workItem from="1637245639502" duration="9215000" />
       <workItem from="1637600223105" duration="2086000" />
-      <workItem from="1637669951611" duration="3064000" />
+      <workItem from="1637669951611" duration="3197000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1634936247972</created>
@@ -128,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637255686459</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added alert if there is an appointment within 15 minutes of login">
+      <created>1637673110917</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1637673110917</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +145,8 @@
     <MESSAGE value="Initial" />
     <MESSAGE value="Working again" />
     <MESSAGE value="Added input validation for appointment creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added input validation for appointment creation" />
+    <MESSAGE value="Added alert if there is an appointment within 15 minutes of login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added alert if there is an appointment within 15 minutes of login" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
