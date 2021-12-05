@@ -6,9 +6,12 @@
 package view;
 
 import DOA.DBAppointment;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import DOA.DBReports;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,23 +42,14 @@ public class TotalReportController implements Initializable {
     @FXML
     private TableColumn<TotalReportObj, Integer> totalCol;
 
-    public static ObservableList<TotalReportObj> getTotals() {
-        ObservableList<TotalReportObj> totals = FXCollections.observableArrayList();
-        ObservableList<Appointment> allAppointments = DBAppointment.getAllAppointments();
-        for (Appointment appointment: allAppointments){
-            
-        }
-        
-        
-        return totals;
-    }
+
 
     public void initialize(URL url, ResourceBundle rb) {
         monthCol.setCellValueFactory(new PropertyValueFactory<TotalReportObj, String>("month"));
         typeCol.setCellValueFactory(new PropertyValueFactory<TotalReportObj, String>("type"));
         totalCol.setCellValueFactory(new PropertyValueFactory<TotalReportObj, Integer>("total"));
 
-        table.setItems(getTotals());
+        table.setItems(DBReports.getAppointmentTotals());
     }
 
 }

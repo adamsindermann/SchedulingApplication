@@ -112,6 +112,17 @@ public class DBAppointment {
         return customerAppointments;
     }
 
+    public static ObservableList<Appointment> getContactAppointments(int contactID) {
+        ObservableList<Appointment> appointments = getAllAppointments();
+        ObservableList<Appointment> contactAppointments = FXCollections.observableArrayList();
+        for (Appointment appointment : appointments) {
+            if (contactID == appointment.getContactID()) {
+                contactAppointments.add(appointment);
+            }
+        }
+        return contactAppointments;
+    }
+
     /**
      * Saves a new appointment to DB.
      *

@@ -6,19 +6,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="262.0" prefWidth="218.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ReportsController">
-   <children>
-      <VBox alignment="CENTER" layoutX="36.0" layoutY="31.0" prefHeight="200.0" prefWidth="147.0" spacing="20.0">
-         <children>
-            <Label text="Generate Report" underline="true">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Button mnemonicParsing="false" onAction="#launchApptTotals" prefWidth="121.0" text="Appointment Totals" />
-            <Button mnemonicParsing="false" prefWidth="121.0" text="Contact Schedule" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Active Customers" />
-         </children>
-      </VBox>
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="262.0" prefWidth="218.0" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ReportsController">
+    <children>
+        <VBox alignment="CENTER" layoutX="36.0" layoutY="31.0" prefHeight="200.0" prefWidth="147.0" spacing="20.0">
+            <children>
+                <Label text="Generate Report" underline="true">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#launchApptTotals" prefWidth="121.0"
+                        text="Appointment Totals"/>
+                <Button mnemonicParsing="false" onAction="#launchClientSchedule" prefWidth="121.0"
+                        text="Contact Schedules"/>
+                <Button mnemonicParsing="false" onAction="#launchInactiveCustomers" prefHeight="25.0" prefWidth="121.0"
+                        text="Inactive Customers"/>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

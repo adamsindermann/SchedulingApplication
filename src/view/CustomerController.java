@@ -86,8 +86,6 @@ public class CustomerController implements Initializable {
     public void populateCountries() {
         ObservableList<Country> allCountries = DBCountry.getAllCountries();
         ObservableList<String> countryNames = FXCollections.observableArrayList();
-//        countryNames.add("United States");
-//        countryNames.add("Canada");
         for (Country country : allCountries) {
             countryNames.add(country.getName());
         }

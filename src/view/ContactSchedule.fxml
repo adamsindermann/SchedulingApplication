@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="518.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.ContactScheduleController">
+    <children>
+        <ComboBox fx:id="contactPicker" layoutX="41.0" layoutY="50.0" onAction="#populateTableView" prefWidth="150.0"/>
+        <Label layoutX="41.0" layoutY="33.0" text="Contact:"/>
+        <TableView fx:id="table" layoutX="41.0" layoutY="100.0" prefHeight="362.0" prefWidth="716.0">
+            <columns>
+                <TableColumn fx:id="apptIDColumn" prefWidth="103.0" text="Appointment ID"/>
+                <TableColumn fx:id="dateColumn" prefWidth="72.0" text="Date"/>
+                <TableColumn fx:id="startTimeColumn" prefWidth="75.0" text="Start Time"/>
+                <TableColumn fx:id="endTimeColumn" prefWidth="75.0" text="End Time"/>
+                <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title"/>
+                <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type"/>
+                <TableColumn fx:id="custIDColumn" prefWidth="75.0" text="Customer ID"/>
+                <TableColumn fx:id="descriptionColumn" prefWidth="165.0" text="Description"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

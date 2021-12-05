@@ -12,10 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Contact;
-import model.Country;
-import model.Customer;
-import model.Division;
+import model.*;
 
 /**
  *
@@ -65,7 +62,7 @@ public class DBContact {
             while (rs.next()) {
                 String email = rs.getString("Email");
                 String name = rs.getString("Contact_Name");
-                
+
                 contact.setEmail(email);
                 contact.setName(name);
             }
@@ -75,4 +72,18 @@ public class DBContact {
         }
         return contact;
     }
+
+    public static int getContactID(String contactName) {
+        ObservableList<Contact> allContacts = getAllContacts();
+        Contact matchingContact = null;
+        for (Contact contact : allContacts) {
+            if (contact.getName().equals(contactName)) {
+                matchingContact = contact;
+                break;
+            }
+        }
+        return matchingContact.getContactID();
+    }
+
+
 }

@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="Added input validation for appointment creation">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a382ab72-aafb-49a2-98a4-da469a55f901" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DOA/DBReports.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ContactSchedule.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ContactScheduleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/InactiveCustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/InactiveCustomers.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBAppointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBCustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBContact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/DOA/DBContact.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/Reports/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/utility/Alerts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Appointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/DashboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Reports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/Reports.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/ReportsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/ReportsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchedulingApplication/view/TotalReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DOA/DBAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DOA/DBContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DOA/DBContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Reports/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reports/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utility/Alerts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Reports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Reports.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ReportsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ReportsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TotalReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TotalReportController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -36,6 +47,7 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -58,11 +70,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/DBConnection.class" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/production/SchedulingApplication" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AdamS\Documents\Code\SchedulingApplication\out\production\SchedulingApplication" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="SchedulingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -106,6 +123,10 @@
       <workItem from="1637245639502" duration="9215000" />
       <workItem from="1637600223105" duration="2086000" />
       <workItem from="1637669951611" duration="3064000" />
+      <workItem from="1638291341595" duration="3082000" />
+      <workItem from="1638366784479" duration="13196000" />
+      <workItem from="1638651619699" duration="1682000" />
+      <workItem from="1638713899003" duration="2662000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1634936247972</created>
@@ -159,6 +180,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
